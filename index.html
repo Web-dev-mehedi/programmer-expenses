@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programmer Expenses Assistant</title>
+    <link rel="stylesheet" href="">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+
+<section class="w-[620px] bg-slate-400 p-8 m-auto">
+
+
+    <div  class="bg-white p-8 ">
+     <div>
+        <h1 class=" text-3xl bg-gradient-to-r from-blue-500 to-violet-700 bg-clip-text text-transparent font-semibold mb-7"> 👿 Programmer Expenses Assistant</h1>
+     </div>
+
+     <div class="flex justify-between mb-6 ">
+        <button id="Assistant" type="button" class=" w-1/2 py-4 rounded-l-xl text-2xl text-slate-950 font-medium bg-red-300">Assistant</button>
+        <button id="history" type="button" class=" w-1/2 py-4 rounded-r-xl text-2xl text-slate-950 font-medium ">History</button>
+    </div>
+
+   
+        <form id="top" class="  grid grid-cols-2  gap-4 justify-between">
+
+            <div class="form-control col-span-2">
+              <label class="label">
+                <span class="label-text text-xl text-slate-600 font-medium">Income💰</span>
+              </label>
+              <input id="income" type="text" placeholder="$$" class="input input-bordered bg-white" required />
+            </div>
+
+            <div class="form-control col-span-1">
+                <label class="label">
+                  <span class="label-text text-xl text-slate-600 font-medium">Software👩‍💻</span>
+                </label>
+                <input id="Software" type="text" placeholder="$$" class="input input-bordered bg-white" required />
+              </div>
+
+              <div class="form-control col-span-1">
+                <label class="label">
+                  <span class="label-text text-xl text-slate-600 font-medium">Courses 📚</span>
+                </label>
+                <input id="Courses" type="text" placeholder="$$" class="input input-bordered bg-white" required />
+              </div>
+ 
+              <div class="form-control col-span-1">
+                <label class="label">
+                  <span class="label-text text-xl text-slate-600 font-medium">Internet🛜</span>
+                </label>
+                <input id="Internet" type="text" placeholder="$$" class="input input-bordered bg-white"/>
+              </div>
+
+            <div class="form-control mt-6 col-span-2">
+              <button id="Calculate" class="bg-gradient-to-r from-blue-500 to-violet-700 rounded-xl text-2xl py-5 text-white font-medium">Calculate</button>
+            </div>
+          </form>
+          <!--  -->
+
+            <div id="top1" class="py-10">
+                     
+                <div class="form-control col-span-1">
+                    <label class="label">
+                      <span class="label-text text-xl text-slate-600 font-medium ">Savings(%) 💸</span>
+                    </label>
+                    <input id="saving-ammount" type="text" placeholder="Savings%" class="input input-bordered bg-white py-7"/>
+                  </div>
+
+                  <div class="form-control mt-6 col-span-2">
+                    <button id="Calculate-savings" class="bg-gradient-to-r from-green-300 to-green-700 rounded-xl text-2xl py-5 text-white font-medium">Calculate Savings</button>
+                  </div>
+
+            </div>
+
+          <!--  -->
+
+           <div id="hidden" class="border-2 border-neutral-500 p-5 my-10 rounded-lg hidden">
+              <h2 class="text-center bg-gradient-to-r from-blue-500 to-violet-700 bg-clip-text text-transparent font-semibold text-3xl mb-10">Results Summary</h2>
+              <div class="grid grid-cols-2 gap-8">
+                  <div class="border-l-4 border-blue-500 rounded-md p-5">
+                      <h3  class="text-slate-400 text-xl">Total Expenses</h3>
+                      <h3 class="text-black text-2xl font-semibold">$ <span id="expenses">0</span></h3>
+                  </div>
+                  <div class="border-l-4 border-green-500 rounded-md p-5">
+                    <h3 class="text-slate-400 text-xl">Balance</h3>
+                    <h3 class="text-black text-2xl font-semibold">$ <span id="balance" >0</span></h3>
+                  </div>
+                  <div class="border-l-4 border-yellow-500 rounded-md p-5">
+                    <h3 class="text-slate-400 text-xl">Saving Amount</h3>
+                    <h3 class="text-black text-2xl font-semibold">$ <span id="Saving-Amount">0</span></h3>
+                  </div>
+                  <div class="border-l-4 border-violet-500 rounded-md p-5">
+                    <h3 class="text-slate-400 text-xl ">Remaining Balance</h3>
+                    <h3 class="text-black text-2xl font-semibold">$ <span id="Remaining-Balance">0</span></h3>
+                  </div>
+              </div>
+             
+           </div>
+    </div>
+
+    <!--  -->
+
+
+    <div class="bg-white p-8 hidden">
+        <div>
+           <h1 class=" text-3xl bg-gradient-to-r from-blue-500 to-violet-700 bg-clip-text text-transparent font-semibold mb-7"> 👿 Programmer Expenses Assistant</h1>
+        </div>
+   
+        <div class="flex justify-between ">
+           <button id="Assistant" type="button" class=" w-1/2 py-4 rounded-l-xl text-2xl text-slate-950 font-medium">Assistant</button>
+           <button type="button" class=" bg-gradient-to-r from-blue-500 to-violet-700 w-1/2 py-4 rounded-r-xl text-2xl text-slate-950 font-medium">History</button>
+       </div>
+   
+      
+       <div id=" hidden" class="border-2 border-neutral-500 p-5 my-10 rounded-lg">
+        <h2 class="text-center bg-gradient-to-r from-blue-500 to-violet-700 bg-clip-text text-transparent font-semibold text-3xl mb-10">Results Summary</h2>
+        <div class="grid grid-cols-2 gap-8">
+            <div class="border-l-4 border-blue-500 rounded-md p-5">
+                <h3  class="text-slate-400 text-xl">Total Expenses</h3>
+                <h3 class="text-black text-2xl font-semibold">$ <span id="expenses">0</span></h3>
+            </div>
+            <div class="border-l-4 border-green-500 rounded-md p-5">
+              <h3 class="text-slate-400 text-xl">Balance</h3>
+              <h3 class="text-black text-2xl font-semibold">$ <span id="balance" >0</span></h3>
+            </div>
+            <div class="border-l-4 border-yellow-500 rounded-md p-5">
+              <h3 class="text-slate-400 text-xl">Saving Amount</h3>
+              <h3 class="text-black text-2xl font-semibold">$ <span id="Saving-Amount">0</span></h3>
+            </div>
+            <div class="border-l-4 border-violet-500 rounded-md p-5">
+              <h3 class="text-slate-400 text-xl ">Remaining Balance</h3>
+              <h3 class="text-black text-2xl font-semibold">$ <span id="Remaining-Balance">0</span></h3>
+            </div>
+        </div>
+       
+     </div>
+
+       </div>
+
+       <div id="hidden1" class="border-2 border-neutral-500 p-5 my-10 rounded-lg hidden ">
+        <h2 class="text-center bg-gradient-to-r from-blue-500 to-violet-700 bg-clip-text text-transparent font-semibold text-3xl mb-10">Expenses History</h2>
+        <div id="append">
+            
+        </div>
+       
+     </div> 
+</section>
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+       
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
