@@ -1,6 +1,8 @@
 
+//for history serial
+let expenses = 0;
+
     document.getElementById('Assistant').addEventListener('click', function(){
-   
    
     document.getElementById('hidden').classList.add('hidden');
     document.getElementById('top').classList.remove('hidden');
@@ -8,7 +10,6 @@
     document.getElementById('hidden1').classList.add('hidden');
     document.getElementById('Assistant').classList.add('bg-gradient-to-r', 'from-blue-500','to-violet-700','text-white');
     document.getElementById('history').classList.remove('bg-gradient-to-r', 'from-violet-500','to-blue-700','text-white');
-    // document.getElementById('Assistant').classList.add();
    
 
 })
@@ -32,7 +33,6 @@
     document.getElementById('Calculate').addEventListener('click', function(event){
     event.preventDefault();
     const income =  parseFloat(document.getElementById('income').value);
-    // console.log(typeof income)
     const software =  parseFloat(document.getElementById('Software').value);
     const courses =  parseFloat(document.getElementById('Courses').value);
     const internet =  parseFloat(document.getElementById('Internet').value);
@@ -40,7 +40,7 @@
       
        
     const allExpenses = software + courses + internet;
-    if(allExpenses > income){
+    if(allExpenses > income  ||  allExpenses <= 0 || income <= 0){
     alert('YOu have NO money')
     return
     }
@@ -48,14 +48,19 @@
 
  // history
 
+
  // checking 
-    if(isNaN(allExpenses ),isNaN(income)){
-    alert('Pls fill all the Fields')
+    if(isNaN(software ) || isNaN(courses )|| isNaN(internet ) || isNaN(income)){
+    alert('Pls fill all the Fields WIth valid NUmber')
     return;
 
     }
 
     else{
+        
+ //for serial
+    const ex= expenses += 1;
+// div append
     const output =document.getElementById('append')
 
     const div = document.createElement('div');
@@ -70,17 +75,19 @@
         //   second: '2-digit',
         hour12: true // Use 24-hour format
     });
-
  
     div.innerHTML = `
-        <p class="text-black text-3xl font-bold underline mb-4">  Expenses 💸<p
-         <p class="text-black text-base font-bold underline mb-4">Date & time: ${time} <p
-        <h2 class=" text-gray-700 text-2xl font-semibold capitalize "> income : $${income} </h2>
-        <h3 class="text-gray-700 text-2xl font-semibold capitalize ">expenses : $${allExpenses}</h3>
-        <h3 class="text-gray-700 text-xl font-semibold capitalize ">  Remaining Balance : $${avaiableBalance}</h3>
+        <p class="text-black text-2xl font-bold underline mb-4 "> (${ex}) Expenses 💸<p
+         <p class="text-black text-base font-bold underline mb-4 ">Date & time: ${time} <p
+        <h2 class=" text-gray-700 text-xl font-semibold capitalize "> income : $${income} </h2>
+        <h3 class="text-gray-700 text-xl font-semibold capitalize ">expenses : $${allExpenses}</h3>
+        <h3 class="text-gray-700 text-lg font-semibold capitalize ">  Remaining Balance : $${avaiableBalance}</h3>
         `
     output.appendChild(div);
     }
+
+
+
 
 //  document.getElementsByClassName("inner-tt").style.cssText= `
 //  width:50%;
@@ -98,10 +105,7 @@
     document.getElementById('expenses').innerText= allExpenses ;
     document.getElementById('balance').innerText= allExpenses;
     document.getElementById('Saving-Amount').innerText= "0";
-    document.getElementById('saving-ammount').value ='';
-
- 
-   
+    document.getElementById('saving-ammount').value =''; 
   
 })
 
@@ -124,15 +128,16 @@
     const avaiableBalance = income -  tWithSavings;
 
      // history
-
+   
  // checking 
-    if(isNaN(savings)){
+    if(isNaN(savings) || savings <= 0) {
     return;
     // alert('Pls fill all the Fields')  
 
     }
 
     else{
+     const ex= expenses += 1;
     const output =document.getElementById('append')
     
     const div = document.createElement('div');
@@ -150,12 +155,12 @@
    
 
     div.innerHTML = `
-            <p class="text-black text-3xl font-bold underline mb-4"> Expenses 💸<p
+             <p class="text-black text-2xl font-bold underline mb-4"> (${ex}) Expenses 💸<p
             <p class="text-black text-base font-bold underline mb-4">Date & time: ${time} <p
-            <h2 class=" text-gray-700 text-2xl font-semibold capitalize "> income : $${income} </h2>
-            <h3 class="text-gray-700 text-2xl font-semibold capitalize ">expenses : $${tWithSavings}</h3>
-            <h3 class="text-gray-700 text-2xl font-semibold capitalize ">savings : $${savingAmount}</h3>
-            <h3 class="text-gray-700 text-xl font-semibold capitalize ">  Remaining Balance : $${avaiableBalance}</h3>
+            <h2 class=" text-gray-700 text-xl font-semibold capitalize "> income : $${income} </h2>
+            <h3 class="text-gray-700 text-xl font-semibold capitalize ">expenses : $${tWithSavings}</h3>
+            <h3 class="text-gray-700 text-xl font-semibold capitalize ">savings : $${savingAmount}</h3>
+            <h3 class="text-gray-700 text-lg font-semibold capitalize ">  Remaining Balance : $${avaiableBalance}</h3>
         `
     output.appendChild(div);
     }
