@@ -36,6 +36,7 @@
     const software =  parseFloat(document.getElementById('Software').value);
     const courses =  parseFloat(document.getElementById('Courses').value);
     const internet =  parseFloat(document.getElementById('Internet').value);
+  
       
        
     const allExpenses = software + courses + internet;
@@ -97,8 +98,9 @@
     document.getElementById('expenses').innerText= allExpenses ;
     document.getElementById('balance').innerText= allExpenses;
     document.getElementById('Saving-Amount').innerText= "0";
-   
-  
+    document.getElementById('saving-ammount').value ='';
+
+ 
    
   
 })
